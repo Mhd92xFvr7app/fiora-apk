@@ -30,8 +30,8 @@ jobs:
           cordova create fiora com.fiora.app fiora
           cp index.html fiora/www/index.html
           cp "فيورا-final.js" "fiora/www/فيورا-final.js"
-          cp logo_512x512.png fiora/www/logo_512x512.png
           cp config.xml fiora/config.xml
+          cp logo_512x512.png fiora/logo_512x512.png
 
       - name: Add Android Platform
         working-directory: fiora
