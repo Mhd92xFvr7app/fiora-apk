@@ -1,0 +1,50 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      - name: Create Cordova Project
+        run: |
+          cordova create fiora com.fiora.app فيورا
+          cp index.html fiora/www/index.html
+          cp "فيورا-final.js" fiora/www/
+          cp logo_512x512.png fiora/www/
+          cp config.xml fiora/config.xml
+
+      - name: Add Android Platform
+        run: |
+          cd fiora
+          cordova platform add android
+
+      - name: Build APK
+        run: |
+          cd fiora
+          cordova build android --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: fiora-apk
+          path: fiora/platforms/android/app/build/outputs/apk/release/*.apk
