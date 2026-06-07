@@ -11,13 +11,19 @@
 
   <icon src="logo_512x512.png" />
 
+  <platform name="android">
+    <icon src="logo_512x512.png" density="ldpi"    width="36"  height="36"  />
+    <icon src="logo_512x512.png" density="mdpi"    width="48"  height="48"  />
+    <icon src="logo_512x512.png" density="hdpi"    width="72"  height="72"  />
+    <icon src="logo_512x512.png" density="xhdpi"   width="96"  height="96"  />
+    <icon src="logo_512x512.png" density="xxhdpi"  width="144" height="144" />
+    <icon src="logo_512x512.png" density="xxxhdpi" width="192" height="192" />
+    <allow-intent href="market:*" />
+  </platform>
+
   <access origin="*" />
   <allow-intent href="http://*/*" />
   <allow-intent href="https://*/*" />
-
-  <platform name="android">
-    <allow-intent href="market:*" />
-  </platform>
 
   <preference name="DisallowOverscroll" value="true" />
   <preference name="android-minSdkVersion" value="22" />
