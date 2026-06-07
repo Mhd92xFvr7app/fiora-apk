@@ -27,10 +27,9 @@ jobs:
 
       - name: Create Cordova Project
         run: |
-          cordova create fiora com.fiora.app فيورا
+          cordova create fiora com.fiora.app fiora
           cp index.html fiora/www/index.html
-          cp "فيورا-final.js" fiora/www/
-          cp logo_512x512.png fiora/www/
+          cp "فيورا-final.js" "fiora/www/فيورا-final.js"
           cp config.xml fiora/config.xml
 
       - name: Add Android Platform
